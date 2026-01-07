@@ -1,7 +1,7 @@
 package dev.gian.GianApp.controllers;
 
 
-import dev.gian.GianApp.models.UserModel;
+import dev.gian.GianApp.models.ProgrammerModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @GetMapping("/")
-    public String index(UserModel user){
+    public String index(ProgrammerModel user){
         return
     }
 

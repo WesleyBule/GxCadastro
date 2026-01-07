@@ -1,23 +1,19 @@
-package dev.gian.GianApp.models;
+package dev.gian.GianApp.programmers;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import dev.gian.GianApp.tasks.TaskModel;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
-
-import java.util.UUID;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @Entity
 @Table(name = "tb_register")
-public class UserModel {
+public class ProgrammerModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO.IDENTITY)
@@ -26,12 +22,16 @@ public class UserModel {
     private String email;
     private int age;
 
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    private TaskModel task;
 
-    public UserModel(){
+
+    public ProgrammerModel(){
 
     }
 
-    public UserModel(String name, String email , int age){
+    public ProgrammerModel(String name, String email , int age){
         this.name = name;
         this.email = email;
         this.age = age;
